@@ -152,7 +152,10 @@ var Dataset = (function() {
       function render(suggestions) {
         // if the update has been canceled or if the query has changed
         // do not render the suggestions as they've become outdated
-        if (!that.canceled && query === that.query) {
+        // c. this does not create responsive behaviour if the user is typing faster than 100ms per key
+        //    and your server cannot return faster than the user types. removing query comparison for now
+        // if (!that.canceled && query === that.query) {
+        if (!that.canceled) {
           that._render(query, suggestions);
         }
       }

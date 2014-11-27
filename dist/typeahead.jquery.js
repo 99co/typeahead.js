@@ -642,7 +642,7 @@
                 this.canceled = false;
                 this.source(query, render);
                 function render(suggestions) {
-                    if (!that.canceled && query === that.query) {
+                    if (!that.canceled) {
                         that._render(query, suggestions);
                     }
                 }
